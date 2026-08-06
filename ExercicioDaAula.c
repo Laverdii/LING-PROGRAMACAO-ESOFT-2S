@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
 	r2 = a/b;
 	r3 = a*b;
 	
-	printf("As operações de %d %d são: +%d -%d /%d *%d", a, b, c, r1, r2, r3);
+	printf("As operaÃ§Ãµes de %d %d sÃ£o: +%d -%d /%d *%d", a, b, c, r1, r2, r3);
 	
 	return 0;
 }
