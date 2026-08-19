@@ -17,13 +17,13 @@ int main(int argc, char *argv[]) {
 	
 	// 2. "Faça um programa que leia a velocidade em km/h, e converta em m/s"
 	printf("\nEXERCICIO 2\n");
-	int velocidade_km, velocidade_m;
+	float velocidade_km, velocidade_m;
 	
 	printf("Digite a velocidade em km/h a ser convertida: ");
-	scanf("%d", &velocidade_km);
+	scanf("%f", &velocidade_km);
 	
 	velocidade_m = velocidade_km / 3,6;
 	
-	printf("A velocidade em m/s e: %d\n", velocidade_m);
+	printf("A velocidade em m/s e: %.2f\n", velocidade_m);
 	return 0;
 }
