@@ -87,20 +87,16 @@ int main(int argc, char *argv[]) {
 	printf("\nA media dos valores e: %.2f", media);
 	printf("\nO produtorio dos valores e: %.2f\n", produtorio);
 
-	/*
-
 	// 6. "Faça um programa que leia a idade de uma pessoa em dias, e retorne em anos, meses e dias (12, 30, 365)"
 	printf("\nEXERCICIO 6\n");
-	int idade_anos, anos, meses, dias;
-	printf("Digite sua idade em anos para calcula-la em anos meses e dias: ");
-	scanf("%d", &idade_anos);
-	anos = idade_anos;
-	meses = idade_anos;
-	dias = idade_anos;
-	printf("...");
-	// INACABADO
-	
-	*/
+	int idade_dias, anos, meses, dias, resto;
+	printf("Digite sua idade em dias para calcula-la em anos meses e dias: ");
+	scanf("%d", &idade_dias);
+	anos = idade_dias / 365;
+	resto = idade_dias % 365; // 145
+	meses = resto / 30 ; // 455
+	dias = resto % 30;
+	printf("Voce tem: %d anos, %d meses e %d dias.", anos, meses, dias);
 
 	// 7. "Faça um programa que calcule e mostre o volume de uma esfera a partir do raio."
 	double raio, volume;
