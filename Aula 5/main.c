@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    // 3. "Faça um programa que leia um número decimal e transforme em binário"
+
 	int num3, div13, div23, div33, div43, div53, div63, resto3, resto13, resto23, resto33, resto43, resto53, resto63;
 
 	printf("\nEXERCICIO 3\n");
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 	
 	printf("%d%d%d%d%d%d%d\n", resto63, resto53, resto43, resto33, resto23, resto13, resto3);
 
-    // 8. "Faça um programa que leia as 4 coordenadas de um plano cartesiano e calcule a distancia euclediana entre eles"
+
 	float x1, x2, y1, y2, distancia;
 
 	printf("\nEXERCICIO 8\n");
