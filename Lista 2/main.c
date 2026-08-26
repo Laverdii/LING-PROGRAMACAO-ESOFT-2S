@@ -82,8 +82,36 @@ int main(int argc, char *argv[]) {
 	terceiro = premio * 0.22;
 
 	printf("O primeiro lugar do concurso ira receber a premiacao de: %.2f; seguido do segundo lugar recebendo: %.2f; e o terceiro: %.2f");
+	
+	// 8. "Faça um programa que leia um valor inteiro, que é o tempo de duração em segundos de um evento, e depois coloque no formato horas:minutos:segundos."
 
-	// 8. "Faça um programa que leia um valor inteiro, que é o tempo de duração em segundos de um evento, e depois coloque no formato horas:minutos:segundos"
+	printf("\nEXERCICIO 8\n");
+
+	int duracao_seg, resto_seg, duracao_min, resto_min, duracao_hora;
+
+	printf("Insira a duraçao do evento em segundos: ");
+	scanf("%d", &duracao_seg);
+
+	resto_min = duracao_seg % 3600; // Pega o resto da divisao de segundos para horas
+	duracao_hora = duracao_seg / 3600; // Converte segundos para horas
+	resto_seg = resto_min % 60; // Pega o resto da conversao de minutos para segundos
+	duracao_min = resto_min / 60; // converte os segundos que sobraram da divisao de horas para minutos, e transforma em minutos
+
+	printf("%d, %d, %d", duracao_hora, duracao_min, resto_seg);
+
+	// 9. "Faça um programa que calcule mostre a quantidade de gasolina consumida."
+	printf("\nEXERCICIO 9\n");
+
+	float v_media, d_percorrida, h_viagem, g_necessaria;
+
+	printf("Qual o tempo gasto na viagem (horas): ");
+	scanf("%f", &h_viagem);
+	printf("Qual a velocidade media da viagem(km/h): ");
+	scanf("%f", &v_media);
+	d_percorrida = v_media * h_viagem;
+	g_necessaria = d_percorrida / 12;
+
+	printf("Em uma viagem de %.1f km, a %.0f km/h, voce gastaria %.3f litros de gasolina.", d_percorrida, v_media, g_necessaria);
 
 	// 10. "Faça um programa que leia três valores e apresente o maior dos três."
 	printf("\nEXERCICIO 10\n");
