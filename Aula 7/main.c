@@ -26,6 +26,6 @@ int main(int argc, char *argv[]) {
         printf("Seu numero eh par");
     } else {
         printf("Seu numero eh impar");
-    }
+    } // Pode se também fazer em uma só linha quando é executado um só comando
     return 0;
 }
