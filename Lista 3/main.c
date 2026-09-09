@@ -61,6 +61,7 @@ void exec2()
 }
 
 void exec3 () {
+    // 3. "Faça um programa que receba o nome de um aluno, e 3 notas dele, apos isso faça a media dele, e mostre o status aprovado, exame ou reprovado, se o status for exame diga quanto falta para ele ser aprovado."
     float nota1, nota2, nota3, media, faltando;
 
     printf("Insira as notas do aluno: ");
