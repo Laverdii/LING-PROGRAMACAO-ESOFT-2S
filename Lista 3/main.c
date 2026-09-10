@@ -6,6 +6,32 @@ int multDigito(int dig, int valor)
     return dig * valor;
 }
 
+float calcINSS (float sal_bruto) { // 7. "Faça uma função que calcule o valor do desconto do INSS dependendo do salario."
+    if (sal_bruto <= 1412.00) {
+        return sal_bruto * 0.075;
+    } else if (sal_bruto >= 1412.01 && sal_bruto <= 2666.68) {
+        return sal_bruto * 0.09;
+    } else if (sal_bruto >= 2666.69 && sal_bruto <= 4000.03) {
+        return sal_bruto * 0.12;
+    } else {
+        return sal_bruto * 0.14;
+    }
+}
+
+float calcIRPF(float sal_base) {
+    if (sal_base <= 2259.20) {
+        return 0;
+    } else if (sal_base >= 2259.21 && sal_base <= 2826.65) {
+        return (sal_base * 0.075) - 169.44;
+    } else if (sal_base >= 2826.66 && sal_base <= 3751.05) {
+        return (sal_base * 0.15) - 381.44;
+    } else if (sal_base >= 3751.06 && sal_base <= 4664.68) {
+        return (sal_base * 0.225) - 662.77;
+    } else {
+        return (sal_base * 0.275) - 896.00;
+    }  
+}
+
 void exec1()
 {
     // 1. "Faça um programa que valide um CPF."
@@ -60,10 +86,12 @@ void exec2()
     }
 }
 
-void exec3 () {
+void exec3() {
     // 3. "Faça um programa que receba o nome de um aluno, e 3 notas dele, apos isso faça a media dele, e mostre o status aprovado, exame ou reprovado, se o status for exame diga quanto falta para ele ser aprovado."
     float nota1, nota2, nota3, media, faltando;
-
+    char nome[30];
+    printf("Digite o nome do aluno: ");
+    scanf("%s", nome);
     printf("Insira as notas do aluno: ");
     scanf("%f %f %f", &nota1, &nota2, &nota3);
 
@@ -78,11 +106,30 @@ void exec3 () {
         printf("\033[31mO aluno esta REPROVADO com media de %.1f\033[0m", media);
     }
 }
+
+void exec9() {
+    float h_trabalhada, h_mensal, sal_bruto, sal_base, sal_liquido, desconto_INSS, desconto_IRPF;
+
+    printf("Digite o valor da sua hora trabalhada: R$");
+    scanf("%f", &h_trabalhada);
+    printf("Digite quantas horas trabalhou no mes: ");
+    scanf("%f", &h_mensal);
+
+    sal_bruto = h_trabalhada * h_mensal;
+
+    desconto_INSS = calcINSS(sal_bruto);
+    sal_base = sal_bruto - desconto_INSS;
+    desconto_IRPF = calcIRPF(sal_base);
+    sal_liquido = (sal_bruto - desconto_INSS) - desconto_IRPF;
+
+    printf("Seu salario liquido e de: R$%.2f", sal_liquido);
+}
 int main(int argc, char *argv[])
 {
     int opcao;
+    float salario, desconto, salario_base, imposto;
 
-    printf("Qual exercicio quer resolver: |1|2|3|5|6|7|8|9|10| ");
+    printf("Qual exercicio quer resolver: |1|2|3|5|6|7|8|9|\n");
     scanf("%d", &opcao);
 
     switch (opcao)
@@ -103,18 +150,22 @@ int main(int argc, char *argv[])
      case 6:
         exec6();
         break;
+        */
      case 7:
-        exec7();
+        printf("Digite seu salario, para calcularmos seu desconto do INSS: ");
+        scanf("%f", &salario);
+        desconto = calcINSS(salario);
+        printf("Com seu salario de R$%.2f, voce tem um desconto de: R$%.2f", salario, desconto);
         break;
      case 8:
-        exec8();
+        printf("Digite seu salario base (salario bruto - INSS): ");
+        scanf("%f", &salario_base);
+        imposto = calcIRPF(salario_base);
+        printf("Com um salario de R$%.2f, voce tem R$%.2f de imposto retido.", salario_base, imposto);
         break;
      case 9:
         exec9();
         break;
-     case 10:
-        exec10();
-        break; */
     }
     return 0;
 }
