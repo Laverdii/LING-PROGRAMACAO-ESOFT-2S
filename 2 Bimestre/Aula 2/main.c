@@ -20,7 +20,7 @@ int compara_menor(int a, int b){
 }
 
 int main() {
-    int valor[9];
+    int valor[10];
     int i, maior, menor; 
 
     // para(inicial; condição; incremento(-- ou ++))
@@ -35,12 +35,13 @@ int main() {
     maior = compara(maior, temp);
    }
 
-   for (i = 6, menor = valor[5]; i < 10; i++){
-    
-    // A resolver
+   for (i = 6, menor = valor[5]; i < 10; i+=2){
+    int temp = compara_menor(valor[i], valor[i+1]);
+    menor = compara_menor(menor, temp);
    }
 
-   printf("Numeros digitados: %d", maior);
+   printf("Maior entre os 5 primeiros numeros digitados: %d\n", maior);
+   printf("Menor entre os restantes: %d", menor);
    
     return 0;
 }
