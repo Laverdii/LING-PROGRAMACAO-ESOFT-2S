@@ -37,6 +37,7 @@ void prova3();
 void prova3_ex0();
 void prova3_ex1();
 void prova3_ex2();
+void menu();
 
 // PROVA 1
 
@@ -71,7 +72,7 @@ void prova1_ex1(){
 
     bolsa = q_itens / capacidade;
 
-    printf("O legendario consegue preencher totalmente %d mochilas com essa capacidade.", bolsa);
+    printf("O legendario consegue preencher totalmente %d mochilas com essa capacidade.\n", bolsa);
 }
 
 void prova1_ex2(){
@@ -123,20 +124,28 @@ void prova1_ex2(){
 
 void prova1(){  
     int opcao;
+    while(opcao != 3){
+        printf("Qual exercicio deseja realizar? 0 | 1 | 2 | 3 (voltar)\n");
+        scanf("%d", &opcao);
 
-    printf("Qual exercicio deseja realizar? 0 | 1 | 2\n");
-    scanf("%d", &opcao);
-
-    switch (opcao){
-    case 0:
-        prova1_ex0();
-        break;
-    case 1:
-        prova1_ex1();
-        break;
-    case 2:
-        prova1_ex2();
-        break;
+        switch (opcao){
+        case 0:
+            prova1_ex0();
+            break;
+        case 1:
+            prova1_ex1();
+            break;
+        case 2:
+            prova1_ex2();
+            break;
+        case 3:
+            printf("\nRetornando ao menu...\n");
+            break;
+        default:
+            printf("Numero invalido!\n");
+            exit(1);
+            break;
+        }
     }
 }
 
@@ -153,7 +162,7 @@ void prova2_ex0(){
     bolsa = q_itens/cap;
     resto = q_itens%cap; 
     
-    printf("O legendario vai preencher totalmente %d mochilas, e sobrarao %d itens", bolsa, resto);
+    printf("O legendario vai preencher totalmente %d mochilas, e sobrarao %d itens\n", bolsa, resto);
 }
 
 void prova2_ex1(){
@@ -179,9 +188,9 @@ void prova2_ex1(){
     }
 
     if (verifica_igualdade(a, b, c) == 1) {
-        printf("Os numero tem que ser distintos");
+        printf("Os numero tem que ser distintos\n");
     } else {
-        printf("Seus numeros em ordem crescente sao: %d | %d | %d", a, b, c);
+        printf("Seus numeros em ordem crescente sao: %d | %d | %d\n", a, b, c);
     }
 }
 
@@ -194,57 +203,65 @@ void prova2_ex2(){
 	switch(cod){
 		case 1:
 			if(num1>num2){
-				printf("Verdadeiro");
+				printf("Verdadeiro\n");
 			} else {
-				printf("Falso");
+				printf("Falso\n");
 			}
 			break;
 		case 2:
 			if (num1 < num2) {
-				printf("Verdadeiro");
+				printf("Verdadeiro\n");
 			} else {
-				printf("Falso");
+				printf("Falso\n");
 			}
 			break;
 		case 3:
 			if (num1 == num2){
-				printf("Verdadeiro");
+				printf("Verdadeiro\n");
 			} else {
-				printf("Falso");
+				printf("Falso\n");
 			}
 			break;
 		case 4:
 			if (num1 != num2){
-				printf("Verdadeiro");
+				printf("Verdadeiro\n");
 			} else{
-				printf("Falso");
+				printf("Falso\n");
 			}
+            break;
 		default:
-			printf("Operador invalido");
+			printf("Operador invalido\n");
+            exit(1);
+            break;
 	}
 	
 }
 
 void prova2(){
 	int opcao;
-	
-	printf("Qual exercicio quer realizar? 0 (esoft A) | 1 (esoft B) | 2 (adsis)\n");
-	scanf("%d", &opcao);
-	
-	switch (opcao){
-		case 0:
-			prova2_ex0();
-			break;
-		case 1:
-			prova2_ex1();
-			break;
-		case 2:
-			prova2_ex2();
-			break;
-		default:
-			printf("Numero invalido!");
-			break;
-	}
+	while (opcao != 3){
+        printf("Qual exercicio quer realizar? 0 | 1 | 2 | 3 (voltar)\n");
+        scanf("%d", &opcao);
+        
+        switch (opcao){
+            case 0:
+                prova2_ex0();
+                break;
+            case 1:
+                prova2_ex1();
+                break;
+            case 2:
+                prova2_ex2();
+                break;
+            case 3:
+                printf("\nRetornando ao menu...\n");
+                break;
+            default:
+                printf("Numero invalido!\n");
+                exit(1);
+                break;
+        }
+    }
 }
 
 // PROVA 3
@@ -257,16 +274,16 @@ void prova3_ex0(){
 
     printf("Consecutivos: ");
     if ((num1 + 1) == num2) {
-        printf("%d %d ", num1, num2);
+        printf("%d %d \n", num1, num2);
     }
     if ((num2 + 1) == num3) {
-        printf("%d %d ", num2, num3);
+        printf("%d %d \n", num2, num3);
     }
     if ((num3 + 1) == num4) {
-        printf("%d %d ", num3, num4);
+        printf("%d %d \n", num3, num4);
     }
     if ((num4 + 1) == num5) {
-        printf("%d %d ", num4, num5);
+        printf("%d %d \n", num4, num5);
     }
 }
 
@@ -288,7 +305,7 @@ void prova3_ex1(){
     } else if(imc >= 30){
         printf("Obeso\n");
     } else {
-        printf("Algo deu errado...");
+        printf("Algo deu errado...\n");
     }
 }
 
@@ -327,49 +344,65 @@ void prova3_ex2(){
     a -= 1;
     c += 1;
     printf("Setimo movimento: A = %d | B = %d | C = %d\n", a, b, c);
-    printf("Resultado final: A = %d | B = %d | C = %d com apenas 7 movimentos.", a, b, c);
+    printf("Resultado final: A = %d | B = %d | C = %d com apenas 7 movimentos.\n", a, b, c);
 }
 
 void prova3(){
     int opcao;
-	
-	printf("Qual exercicio quer realizar? 0 | 1 | 2\n");
-	scanf("%d", &opcao);
-	
-	switch (opcao){
-		case 0:
-			prova3_ex0();
-			break;
-		case 1:
-			prova3_ex1();
-			break;
-		case 2:
-			prova3_ex2();
-			break;
-		default:
-			printf("Numero invalido!");
-			break;
-	}
+	while(opcao != 3){
+        printf("Qual exercicio quer realizar? 0 | 1 | 2 | 3 (voltar)\n");
+        scanf("%d", &opcao);
+        
+        switch (opcao){
+            case 0:
+                prova3_ex0();
+                break;
+            case 1:
+                prova3_ex1();
+                break;
+            case 2:
+                prova3_ex2();
+                break;
+            case 3:
+                printf("\nRetornando ao menu...\n");
+                break;
+            default:
+                printf("Numero invalido!\n");
+                exit(1);
+                break;
+        }
+    }
+}
+
+void menu(){
+    int opcao = 0;
+
+    while (opcao != 4){
+        printf("Qual prova deseja realizar? 1 (esoft A) | 2 (esoft B) | 3 (adsis) | 4 (sair)\n");
+        scanf("%d", &opcao);
+
+        switch (opcao){
+        case 1:
+            prova1();
+            break;
+        case 2:
+            prova2();
+            break;
+        case 3:
+            prova3();
+            break;
+        case 4:
+            printf("Encerrando programa...");
+            break;
+        default:
+            printf("Numero invalido\n");
+            exit(1);
+            break;
+        }
+    }
 }
 
 int main() {
-    int opcao;
-    printf("Qual prova deseja realizar? 1 (esoft A) | 2 (esoft B) | 3 (adsis)\n");
-    scanf("%d", &opcao);
-
-    switch (opcao){
-    case 1:
-        prova1();
-        break;
-    case 2:
-        prova2();
-        break;
-    case 3:
-        prova3();
-        break;
-    default:
-        printf("Numero invalido");
-        break;
-    }
+    menu();
     return 0;
 }
