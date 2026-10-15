@@ -46,29 +46,52 @@ void ex2(){
 
 // Exercício 3. "Faça um programa que exiba na tela o triÂngulo de pascal."
 void ex3(){
-    
+    int linhas, i, j, valor;
+
+
+    printf("Informe a quantidade de linhas que o triangulo deve ter: ");
+    scanf("%d", &linhas);
+
+    for (i = 0; i < linhas; i++) {
+        for (j = 0; j < linhas - i - 1; j++) {
+            printf(" ");
+        }
+
+        valor = 1;
+
+        for (j = 0; j <= i; j++) {
+            printf("%d ", valor);
+            valor = valor * (i - j) / (j + 1);
+        }
+
+        printf("\n");
+    }
 }
+
 int main() {
     int opcao;
-    printf("Qual exercicio deseja realizar? 1 | 2 | 3 | 4 (sair)\n");
-    scanf("%d", &opcao);
+    
     while(opcao != 4){
+        printf("Qual exercicio deseja realizar? 1 | 2 | 3 | 4 (sair)\n");
+        scanf("%d", &opcao);
         switch (opcao){
-        case 1:
-            ex1();
-            break;
-        case 2:
-            ex2();
-            break;
-        case 3:
-            // ex3();
-            break;
-        case 4:
-            printf("\nEncerrando programa...");
-        default:
-            printf("Digite um exercicio válido");
-            break;
+            case 1:
+                ex1();
+                break;
+            case 2:
+                ex2();
+                break;
+            case 3:
+                ex3();
+                break;
+            case 4:
+                printf("\nEncerrando programa...");
+                break;
+            default:
+                printf("Digite um exercicio válido");
+                exit(1);
+                break;
+            }
         }
-    }
     return 0;
-}
+}   
