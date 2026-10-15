@@ -44,7 +44,7 @@ void ex2(){
 }
 
 
-// Exercício 3. "Faça um programa que exiba na tela o triÂngulo de pascal."
+// Exercício 3. "Faça um programa que exiba na tela o triângulo de pascal."
 void ex3(){
     int linhas, i, j, valor;
 
